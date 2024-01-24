@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "872e4e65-d259-4a5e-a99f-23777b21c43a",
+		"name": "criteria api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23286474"
+	},
+	"item": [
+		{
+			"name": "save student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Rustam ali\",\r\n  \"address\": {\r\n    \"city\": \"Chicago\"\r\n  },\r\n  \"subjects\": [\r\n    {\r\n      \"name\": \"Biology\"\r\n    },\r\n    {\r\n      \"name\": \"Math\"\r\n    }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get by name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/std/David Lee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"std",
+						"David Lee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get by city name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/std/city/Chicago",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"std",
+						"city",
+						"Chicago"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get by subjects",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/std/subject/Mathematics",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"std",
+						"subject",
+						"Mathematics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBySpecification",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/spec",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"spec"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Join specfication",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"operator\":\"AND\",\r\n    \"searchRequestDto\":[{\r\n        \"joinTable\":\"address\",\r\n        \"column\":\"city\",\r\n        \"value\":\"Chicago\",\r\n        \"operation\":\"JOIN\"\r\n    },{\r\n         \"column\":\"name\",\r\n        \"value\":\"Rustam ali\",\r\n         \"operation\":\"LIKE\"\r\n    },{\r\n        \"joinTable\":\"subjects\",\r\n         \"column\":\"name\",\r\n        \"value\":\"Mathematics\",\r\n         \"operation\":\"JOIN\"\r\n    }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/specfication",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"specfication"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
